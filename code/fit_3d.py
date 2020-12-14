@@ -595,7 +595,7 @@ def main(base_dir,
                         plt.pause(1)
                 input('Press any key to continue...')
 
-            with open(out_path, 'w') as outf:
+            with open(out_path, 'wb') as outf:
                 pickle.dump(params, outf)
 
             # This only saves the first rendering.
