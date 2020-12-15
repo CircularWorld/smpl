@@ -609,7 +609,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='run SMPLify on LSP dataset')
     parser.add_argument(
         'base_dir',
-        default='/Users/yang/smplify_public/',
+        default='../',
         nargs='?',
         help="Directory that contains images/lsp and results/lps , i.e."
         "the directory you untared smplify_code.tar.gz")
