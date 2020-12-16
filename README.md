@@ -4,7 +4,6 @@
 
 ```bashrc
 $ python hello_smpl.py
-$ python render_smpl.py
 ```
 
 ## 运行 smplify

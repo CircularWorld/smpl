@@ -40,25 +40,35 @@ the hello world script now by typing the following:
 
 '''
 
-from smpl_webuser.serialization import load_model
+import trimesh
+import pyrender
 import numpy as np
 
+from smpl_webuser.serialization import load_model
+
 ## Load SMPL model (here we load the female model)
-## Make sure path is correct
 m = load_model( './models/basicModel_f_lbs_10_207_0_v1.0.0.pkl' )
 
 ## Assign random pose and shape parameters
-m.pose[:] = np.random.rand(m.pose.size) * .2
+m.pose[:]  = np.random.rand(m.pose.size) * .2
 m.betas[:] = np.random.rand(m.betas.size) * .03
 
-## Write to an .obj file
-outmesh_path = './hello_smpl.obj'
-with open( outmesh_path, 'w') as fp:
-    for v in m.r:
-        fp.write( 'v %f %f %f\n' % ( v[0], v[1], v[2]) )
+vertices   = m
+faces      = m.f
 
-    for f in m.f+1: # Faces are 1-based, not 0-based in obj files
-        fp.write( 'f %d %d %d\n' %  (f[0], f[1], f[2]) )
+vertex_colors = np.ones([vertices.shape[0], 4]) * [0.3, 0.3, 0.3, 0.9]
+tri_mesh = trimesh.Trimesh(vertices, faces, vertex_colors=vertex_colors)
 
-## Print message
-# print '..Output mesh saved to: ', outmesh_path
+# adding body meshs
+mesh = pyrender.Mesh.from_trimesh(tri_mesh)
+scene = pyrender.Scene()
+scene.add(mesh)
+
+# adding obeserving camera
+camera = pyrender.PerspectiveCamera(yfov=np.pi / 3.0, aspectRatio=1.414)
+camera_pose = np.eye(4)
+camera_pose[:3, 3] = np.array([0, 0, 5])
+scene.add(camera, pose=camera_pose)
+
+pyrender.Viewer(scene, use_raymond_lighting=True)
+
