@@ -3,7 +3,7 @@
 ```bashrc
 $ sudo apt-get install libosmesa6-dev
 $ pip3 install opendr==0.78
-$ pip3 install 
+$ pip3 install pyrender trimesh
 ```
 
 ## 运行 smpl
