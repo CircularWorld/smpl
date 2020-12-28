@@ -17,3 +17,8 @@ $ python hello_smpl.py
 ```bashrc
 $ python fit_3d.py
 ```
+
+## 相关文档
+
+- [视频人体动作捕捉技术](https://zhuanlan.zhihu.com/p/208669724)
+- [SMPL: A Skinned Multi-Person Linear Model - GitHub](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwixx93f1u_tAhVB-2EKHeANBkQQFjAIegQIChAC&url=https%3A%2F%2Fraw.githubusercontent.com%2FEros-L%2FEros-L.github.io%2Fmaster%2F_posts%2Fthesis%2Fweek9%2FSMPL-document.pdf&usg=AOvVaw3EBFl-UTOuxBTRvZmX0VlG)
