@@ -9,12 +9,14 @@ $ pip3 install pyrender trimesh
 ## 运行 smpl
 
 ```bashrc
+$ cd code
 $ python hello_smpl.py
 ```
 
 ## 运行 smplify
 
 ```bashrc
+$ cd code
 $ python fit_3d.py
 ```
 
